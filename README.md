@@ -1,1 +1,1 @@
-# iWay
+# INway
