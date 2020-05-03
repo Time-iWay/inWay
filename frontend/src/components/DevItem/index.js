@@ -1,19 +1,22 @@
-import React from 'react';
+//Não aplicado neste projeto
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
-export default function DevItem({dev}) {
-  return(
+export default function DevItem({ dev }) {
+  return (
     <li className="dev-item">
       <header>
-        <img src={dev.avatar_url} alt={dev.name}/>
+        <img src={dev.avatar_url} alt={dev.name} />
         <div className="user-info">
           <strong>{dev.name}</strong>
-          <span>{dev.techs.join(', ')}</span>
+          <span>{dev.techs.join(", ")}</span>
         </div>
       </header>
       <p>{dev.bio}</p>
-      <a href={`https://github.com/${dev.github_username}`}>Acessar Perfil no Github</a>
+      <a href={`https://github.com/${dev.github_username}`}>
+        Acessar Perfil no Github
+      </a>
     </li>
   );
 }

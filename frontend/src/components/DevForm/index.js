@@ -1,13 +1,15 @@
-import React , {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
-import './styles.css';
+import { Checkbox } from "@material-ui/core";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import "./index.css";
 
 export default function DevForm({ onSubmit }) {
   // Create States to use values
-  const [github_username, setGithubUsername] = useState(''); 
-  const [techs, setTechs] = useState('');  
-  const [latitude, setLatitude] = useState(''); 
-  const [longitude, setLongitude] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   // Run it  to update GEOLOCATION when all components are mounted
   useEffect(() => {
@@ -17,84 +19,105 @@ export default function DevForm({ onSubmit }) {
       (position) => {
         const { latitude, longitude } = position.coords;
         setLatitude(latitude);
-        setLongitude(longitude)
+        setLongitude(longitude);
       },
       //If it err, log error
       (err) => {
-        console.log(err);        
-      },{
+        console.log(err);
+      },
+      {
         //timeout to get any response for geolocation
         timeout: 30000,
       }
-    )
-  },[]);
+    );
+  }, []);
 
-  async function handleSubmit(e) {
-     // Prevent form to change to "next" page
-     e.preventDefault();
-     
-    // Send data to handleAddDev function in App.js
-    await onSubmit({
-      github_username,
-      techs,
-      latitude,
-      longitude
-    });
+  // async function handleSubmit(e) {
+  //   // Prevent form to change to "next" page
+  //   e.preventDefault();
 
-    // Clean githubusername and techs fields
-    setGithubUsername('');
-    setTechs('');
-}
+  //   // Send data to handleAddDev function in App.js
+  //   await onSubmit({
+  //     username,
+  //     email,
+  //     latitude,
+  //     longitude,
+  //   });
+
+  //   // Clean githubusername and email fields
+  //   setUsername("");
+  //   setEmail("");
+  // }
 
   return (
-    <form onSubmit={handleSubmit}>
-    <div className="input-block">
-      <label htmlFor="github_username">Usuário do Github</label>
-      <input 
-        id="github_username"
-        name="github_username"
-        required
-        value={github_username}
-        onChange={e => setGithubUsername(e.target.value)}
-      />
-    </div>
+    <form>
+      <div className="input-block">
+        <label htmlFor="username">Seu nome</label>
+        <input
+          id="username"
+          name="username"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
 
-    <div className="input-block">
-      <label htmlFor="techs">Tecnologias</label>
-      <input 
-        id="techs"
-        name="techs"
-        required
-        value={techs}
-        onChange={e => setTechs(e.target.value)}
-      />
-    </div>
+      <div className="input-block">
+        <label htmlFor="email">seu E-mail</label>
+        <input
+          id="email"
+          name="email"
+          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
 
-    <div className="input-group">
+      <div className="input-group">
         <div className="input-block">
           <label htmlFor="latitude">Latitude</label>
-          <input 
+          <input
             type="number"
             id="latitude"
             name="latitude"
-            required value={latitude}
-            onChange={e => setLatitude(e.target.value) }
+            required
+            value={latitude}
+            onChange={(e) => setLatitude(e.target.value)}
           />
         </div>
 
         <div className="input-block">
           <label htmlFor="longitude">Longitude</label>
-          <input 
+          <input
             type="number"
             id="longitude"
             name="longitude"
-            required value={longitude}
-            onChange={e => setLongitude(e.target.value)}
+            required
+            value={longitude}
+            onChange={(e) => setLongitude(e.target.value)}
           />
         </div>
-    </div>
+      </div>
+      <FormControlLabel
+        style={{ paddindTop: "10px", fontSize: "1.6rem" }}
+        // value= "true"
+        control={
+          <Checkbox
+            color="primary"
+            id="Check"
 
-    <button type="submit">Salvar</button>
-  </form>
-  )
+            // onChange={e => setColetaEmail(published ? false : true)} //altera entre V e F ao clicar
+          />
+        }
+        label="podemos lhe enviar E-mails"
+        labelPlacement="end"
+        // onChange={e => setColetaEmail(e.target.value)}
+      />
+      <br></br>
+      <a className="link" href="/">
+        Avançar
+      </a>
+    </form>
+  );
 }

@@ -1,17 +1,18 @@
 li.dev-item {
   background: #fff;
-  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02); 
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
   padding: 20px;
+  padding-bottom: 40px;
 }
 
-li.dev-item header{
+li.dev-item header {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-li.dev-item header img{
+li.dev-item header img {
   width: 54px;
   height: 54px;
   border-radius: 50%;

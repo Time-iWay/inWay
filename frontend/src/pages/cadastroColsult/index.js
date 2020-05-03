@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "reactstrap";
 import api from "../../services/api";
 
 //* --- > Css import < ---*
-import "./global.css";
+import "../../global.css";
 import "./index.css";
 import "./Sidebar.css";
-import "./Main.css";
+import background from "../../assets/Formulario.png";
+import logo from "../../assets/logo.png";
 
 import DevForm from "../../components/DevForm";
-import DevItem from "../../components/DevItem";
+// import DevConsult from "../../components/consultForm"
+// import DevItem from "../../components/DevItem";
 
 function App() {
   // Create States to use values
@@ -18,7 +21,7 @@ function App() {
   useEffect(() => {
     async function loadDevs() {
       // Load all devs saved in database
-      const response = await api.get("/devs");
+      const response = await api.get("/consult");
       setDevs(response.data);
     }
 
@@ -26,31 +29,38 @@ function App() {
   }, []);
 
   // Access to server though API(axios)
-  async function handleAddDev(data) {
-    // Send all form info to server to save in database
-    const response = await api.post("/devs", data);
+  // async function handleAddDev(data) {
+  //   // Send all form info to server to save in database
+  //   const response = await api.post("/consult", data);
 
-    // Add new Dev to array
-    setDevs([...devs, response.data]);
-  }
+  //   // Add new Dev to array
+  //   setDevs([...devs, response.data]);
+  // }
 
   return (
-    <div id="app">
-      {/* --- > ASIDE < ---*/}
-      <aside>
-        <strong>Cadastrar</strong>
-        <DevForm onSubmit={handleAddDev} />
-      </aside>
-
-      {/* --- > MAIN < ---*/}
-      <main>
-        <ul>
-          {devs.map((dev) => (
-            <DevItem key={dev._id} dev={dev} />
-          ))}
-        </ul>
-      </main>
-    </div>
+    <>
+      <img className="background" src={background} alt="" />
+      <Container>
+        <img className="logo" src={logo} alt="" />
+        <Row id="form" style={{ display: "flex" }}>
+          <Col xs="6" md="4">
+            <div>
+              {/* --- > ASIDE < ---*/}
+              <aside>
+                <strong>Profissional</strong>
+                <DevForm />
+              </aside>
+              }
+            </div>
+          </Col>
+          {/* <Col xs="6" md="4" > */}
+          <p className="desc">
+            Precisamos traçar seu o seu <strong>perfil</strong>
+          </p>
+          {/* </Col> */}
+        </Row>
+      </Container>
+    </>
   );
 }
 

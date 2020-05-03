@@ -1,0 +1,15 @@
+.link {
+  position: relative;
+  top: 10px;
+  width: 200px;
+  height: 40px;
+  background-color: #42CE35;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  bottom: 20px;
+  margin-left: 75px;
+}
