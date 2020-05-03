@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
@@ -144,3 +145,35 @@ body {
 .btn:hover {
   letter-spacing: 0.100rem;
 }
+=======
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#app main {
+  margin-left: 30px;
+}
+
+/* Responsive Layout */
+@media (max-width: 1000px) {
+    #app {
+      flex-direction: column;
+    }
+
+    #app main {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    #app aside {
+      width: 100%;
+    }
+
+}
+>>>>>>> 98ed3d16d5c11d86cb7a0f568b84dffebefcaa85
