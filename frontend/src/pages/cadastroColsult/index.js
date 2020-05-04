@@ -50,7 +50,6 @@ function App() {
                 <strong>Profissional</strong>
                 <DevForm />
               </aside>
-              }
             </div>
           </Col>
           {/* <Col xs="6" md="4" > */}

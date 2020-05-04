@@ -48,6 +48,7 @@
     left: 0;
     margin-bottom: 10px;
     font-size: 35px;
+    max-width: 400px;
   }
   #form {
     margin-top: 20px;

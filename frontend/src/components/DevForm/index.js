@@ -100,7 +100,7 @@ export default function DevForm({ onSubmit }) {
         </div>
       </div>
       <FormControlLabel
-        style={{ paddindTop: "10px", fontSize: "1.6rem" }}
+        style={{ paddindTop: "10px" }}
         // value= "true"
         control={
           <Checkbox
@@ -110,12 +110,12 @@ export default function DevForm({ onSubmit }) {
             // onChange={e => setColetaEmail(published ? false : true)} //altera entre V e F ao clicar
           />
         }
-        label="podemos lhe enviar E-mails"
+        label="Não desejo receber e-mails"
         labelPlacement="end"
         // onChange={e => setColetaEmail(e.target.value)}
       />
       <br></br>
-      <a className="link" href="/">
+      <a className="link" href="/profile">
         Avançar
       </a>
     </form>

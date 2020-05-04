@@ -37,7 +37,9 @@ function Home() {
               <span>Sobre nós</span>
             </button>
             <button className="buttons">
-              <span>Cadastrar!</span>
+              <a className="link1" href="/start">
+                <span>Cadastrar </span>
+              </a>
             </button>
           </div>
         </div>
