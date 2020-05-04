@@ -1,7 +1,8 @@
 import React from "react";
-import "./App.css";
+import "./app.css";
 
 import logo from "../../assets/logo.png";
+import pic from "../../assets/ilustra.png";
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
         </div>
         <div className="menu">
           <ul className="menu-content">
-            <li className="menu-item">
+            <li className="menu-item left">
               Já sou <span>Invetidor</span>
             </li>
             <li className="menu-item">
@@ -23,7 +24,7 @@ function Home() {
       </header>
 
       <div className="body">
-        <div className="textos">
+        <div className="body-content">
           <div className="body-texto">
             <h1 className="title">
               Incentivando quem <span>quer</span>, Indicando quem{" "}
@@ -31,36 +32,18 @@ function Home() {
             </h1>
           </div>
 
-          <div className="body-sub">
-            <h5 className="subtitle">
-              Gostaria-mos de lhe chamar pelo nome! Preencha os espaços e
-              selecione uma das opções para lhe conhecer-mos melhor.
-            </h5>
+          <div className="body-buttons">
+            <button className="buttons">
+              <span>Sobre nós</span>
+            </button>
+            <button className="buttons">
+              <span>Cadastrar!</span>
+            </button>
           </div>
         </div>
-        <div className="form">
-          <div className="body-form">
-            <input
-              className="input"
-              type="text"
-              placeholder="Nome"
-              autoComplete="off"
-              required
-            />
-            <input
-              className="input"
-              type="email"
-              placeholder="Email"
-              autoComplete="off"
-              required
-            />
 
-            <div>
-              <button className="btn">Investidor</button>
-              <h5 className="ou">- ou -</h5>
-              <button className="btn">Consultor</button>
-            </div>
-          </div>
+        <div className="body-image">
+          <img className="img" src={pic} alt="picture" />
         </div>
       </div>
     </div>
