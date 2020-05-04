@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Consult from "./pages/cadastroColsult/index";
-import Home from "./pages/home/App";
+import Home from "./pages/home/app";
 
 export default function Routes() {
   return (
