@@ -23,7 +23,7 @@ function Home() {
         </div>
       </header>
 
-      <div className="body">
+      <div className="body-app">
         <div className="body-content">
           <div className="body-texto">
             <h1 className="title">
