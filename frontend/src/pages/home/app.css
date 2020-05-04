@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-body {
+
+.App {
+  width: 100vw;
+  height: 100vh;
   background: #000000 url("../../assets/Backgroud.png") no-repeat;
 }
 
@@ -36,7 +39,7 @@ body {
   cursor: pointer;
 }
 
-.body {
+.body-app{
   display: flex;
   flex-direction: row;
   align-items: center;
