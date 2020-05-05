@@ -13,10 +13,10 @@ function Home() {
         </div>
         <div className="menu">
           <ul className="menu-content">
-            <li className="menu-item left">
+            <li style={{ color: "#fff" }} className="menu-item left">
               Já sou <span>Invetidor</span>
             </li>
-            <li className="menu-item">
+            <li style={{ color: "#fff" }} className="menu-item">
               Já sou <span>Consultor</span>
             </li>
           </ul>
