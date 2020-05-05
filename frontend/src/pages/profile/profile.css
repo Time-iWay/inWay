@@ -33,10 +33,19 @@ body {
 
 .top h4 {
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Comfortaa', sans-serif;
 }
-  
+ 
+.community h5 {
+    font-size: 20px;
+    color: #42ce34;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    cursor: pointer
+}
+
+
 .banner {
     margin-top: 10px;
     display: flex;
@@ -55,8 +64,8 @@ body {
 }
 
 .ft {
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     border-radius: 50px;
     background-color: #dcdde1;
     margin-bottom: 10px;
@@ -86,15 +95,26 @@ body {
     background-color:transparent;
 }
 
-.emails-profile {
+.search-profile {
+    display: flex;
     height: 60vh;
     width: 25vw;
     background-color:#f1f2f6;
     margin-right: 2vw;
     border-radius: 10px;
+    justify-content: center;
     -webkit-box-shadow: 5px 5px 12px -5px rgba(199,195,199,1);
     -moz-box-shadow: 5px 5px 12px -5px rgba(199,195,199,1);
     box-shadow: 5px 5px 12px -5px rgba(199,195,199,1);
+}
+
+.search {
+    margin-top: 20px;
+    border-radius: 10px;
+    border: #42ce34 solid 1px;
+    height: 45px;
+    width: 250px;
+    padding: 10px;
 }
 
 .body-content-profile {
