@@ -15,27 +15,27 @@ import DevForm from "../../components/DevForm";
 
 function App() {
   // Create States to use values
-  const [devs, setDevs] = useState([]);
+  const [consults, setConsult] = useState([]);
 
-  // Run it  to update All DEVS when all components are mounted
+  // Run it  to update All consults when all components are mounted
   useEffect(() => {
-    async function loadDevs() {
-      // Load all devs saved in database
+    async function loadConsults() {
+      // Load all consults saved in database
       const response = await api.get("/consult");
-      setDevs(response.data);
+      setConsult(response.data);
     }
 
-    loadDevs();
+    loadConsults();
   }, []);
 
   // Access to server though API(axios)
-  // async function handleAddDev(data) {
-  //   // Send all form info to server to save in database
-  //   const response = await api.post("/consult", data);
+  async function handleAddDev(data) {
+    // Send all form info to server to save in database
+    const response = await api.post("/consult", data);
 
-  //   // Add new Dev to array
-  //   setDevs([...devs, response.data]);
-  // }
+    // Add new Dev to array
+    setConsult([...consults, response.data]);
+  }
 
   return (
     <>
@@ -48,7 +48,7 @@ function App() {
               {/* --- > ASIDE < ---*/}
               <aside>
                 <strong>Profissional</strong>
-                <DevForm />
+                <DevForm onSubmit={handleAddDev} />
               </aside>
             </div>
           </Col>

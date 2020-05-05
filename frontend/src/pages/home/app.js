@@ -45,7 +45,7 @@ function Home() {
         </div>
 
         <div className="body-image">
-          <img className="img" src={pic} alt="picture" />
+          <img className="img" src={pic} alt="pic" />
         </div>
       </div>
     </div>

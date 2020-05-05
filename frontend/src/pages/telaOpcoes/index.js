@@ -35,7 +35,7 @@ function Opcoes() {
               <Col xl="4">
                 <a style={{ textDecoration: "none" }} href="/new/consult">
                   <div className="card-opcao">
-                    <img className="ilustra-opcao" src={pic1} />
+                    <img className="ilustra-opcao" src={pic1} alt="" />
                     <button className="btn-opcao">Consultor</button>
                   </div>
                 </a>
@@ -46,7 +46,7 @@ function Opcoes() {
               <Col xl="4">
                 <a style={{ textDecoration: "none" }} href="/new/consult">
                   <div className="card-opcao">
-                    <img className="ilustra-opcao" src={pic2} />
+                    <img className="ilustra-opcao" src={pic2} alt="" />
                     <button className="btn-opcao">Investidor</button>
                   </div>
                 </a>
