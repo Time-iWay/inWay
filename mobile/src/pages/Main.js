@@ -20,9 +20,9 @@ import { connect, disconnect, subcribeToNewDevs } from "../services/socket";
 
 function Main({ navigation }) {
   // Save states for Dev, location and tech(input text)
-  const [devs, setDevs] = useState([]);
+  const [consults, setConsult] = useState([]);
   const [currentRegion, setCurrentRegion] = useState(null);
-  const [techs, setTechs] = useState("");
+  const [perfil, setPerfil] = useState("");
 
   // Ask permissions for geolocation and generate it on the map
   useEffect(() => {
@@ -46,31 +46,31 @@ function Main({ navigation }) {
     loadInitialPosition();
   }, []);
 
-  // "Reload" all devs based on websocket response
+  // "Reload" all consults based on websocket response
   useEffect(() => {
-    subcribeToNewDevs((dev) => setDevs([...devs, dev]));
-  }, [devs]);
+    subcribeToNewDevs((consult) => setConsult([...consults, consult]));
+  }, [consults]);
 
-  // Setup websocket connetion for new Devs in realtime
+  // Setup websocket connetion for new consults in realtime
   function setupWebsocket() {
     disconnect();
     const { latitude, longitude } = currentRegion;
 
-    connect(latitude, longitude, techs);
+    connect(latitude, longitude, perfil);
   }
 
-  // Load Devs in the map based on techs search
-  async function loadDevs() {
+  // Load consults in the map based on perfil search
+  async function loadConsults() {
     const { latitude, longitude } = currentRegion;
 
     const response = await api.get("/search", {
       params: {
         latitude,
         longitude,
-        techs,
+        perfil,
       },
     });
-    setDevs(response.data);
+    setConsult(response.data);
     setupWebsocket();
   }
 
@@ -92,28 +92,32 @@ function Main({ navigation }) {
         initialRegion={currentRegion}
         style={styles.map}
       >
-        {devs.map((dev) => (
+        {consults.map((consult) => (
           // Puts maker in map
           <Marker
-            key={dev._id}
+            // key={consult._id}
             coordinate={{
-              latitude: dev.location.coordinates[1],
-              longitude: dev.location.coordinates[0],
+              latitude: -26.3544977,
+              longitude: -52.8527323,
+              // latitude: consult.location.coordinates[1],
+              // longitude: consult.location.coordinates[0],
             }}
           >
-            <Image style={styles.avatar} source={{ uri: dev.avatar_url }} />
+            <Image style={styles.avatar} source={{ uri: consult.avatar_url }} />
             <Callout
               onPress={() => {
                 // Navigate to Profile sending username as param
                 navigation.navigate("Profile", {
-                  github_username: dev.github_username,
+                  github_username: consult.github_username,
                 });
               }}
             >
               <View style={styles.callout}>
-                <Text style={styles.devName}>{dev.name}</Text>
-                <Text style={styles.devBio}>{dev.bio}</Text>
-                <Text style={styles.devTechs}>{dev.techs.join(", ")}</Text>
+                <Text style={styles.consultName}>{consult.name}</Text>
+                <Text style={styles.consultBio}>{consult.bio}</Text>
+                <Text style={styles.consultPerfil}>
+                  {consult.perfil.join(", ")}
+                </Text>
               </View>
             </Callout>
           </Marker>
@@ -123,15 +127,15 @@ function Main({ navigation }) {
       <View style={styles.searchForm}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Buscar Dev por techs..."
+          placeholder="Buscar Consultores por perfil..."
           placeholderTextColor="#999"
           autoCapitalize="words"
           autoCorrect={false}
-          value={techs}
-          onChangeText={(text) => setTechs(text)}
+          value={perfil}
+          onChangeText={(text) => setPerfil(text)}
         />
         {/* Search button*/}
-        <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
+        <TouchableOpacity onPress={loadConsults} style={styles.loadButton}>
           <MaterialIcons name="my-location" size={20} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -167,7 +171,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
-  devTechs: {
+  devPerfil: {
     marginTop: 5,
   },
 

@@ -1,17 +1,19 @@
-import socketio from 'socket.io-client';
+import socketio from "socket.io-client";
 
 // Connect to websocket on server
-const socket = socketio('http://192.168.15.45:3333', {
+const socket = socketio("http://192.168.15.45:3333", {
   autoConnect: false,
 });
 
 function subcribeToNewDevs(subcribeFunction) {
-  socket.on('new-dev', subcribeFunction);
+  socket.on("new-dev", subcribeFunction);
 }
 
-function connect(latitude, longitude, techs) {
+function connect(latitude, longitude, perfil) {
   socket.io.opts.query = {
-    latitude, longitude, techs,
+    latitude,
+    longitude,
+    perfil,
   };
 
   socket.connect();
@@ -23,8 +25,4 @@ function disconnect() {
   }
 }
 
-export {
-  connect,
-  disconnect,
-  subcribeToNewDevs
-};
+export { connect, disconnect, subcribeToNewDevs };
